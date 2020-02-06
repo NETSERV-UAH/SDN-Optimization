@@ -35,8 +35,8 @@ simple MacRelayUnitSDN like IMacRelayUnit
         @signal[packetReceivedFromUpper](type=cPacket);
         @signal[packetReceivedFromLower](type=cPacket);
         //EXTRA BEGIN
-        @signal[packetReceivedFromControllerSignal](type=cPacket);
-        @signal[packetSentToControllerSignal](type=cPacket);
+        @signal[packetReceivedFromController](type=cPacket);
+        @signal[packetSentToController](type=cPacket);
         //EXTRA END
     gates:
         input ifIn @labels(EtherFrame);

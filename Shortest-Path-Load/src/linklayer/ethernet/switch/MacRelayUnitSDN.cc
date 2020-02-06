@@ -18,7 +18,7 @@
 #include "inet/common/IProtocolRegistrationListener.h"
 #include "inet/common/LayeredProtocolBase.h"
 #include "inet/common/lifecycle/ModuleOperations.h"
-#include "inet/common/ModuleAccess.h"
+//#include "inet/common/ModuleAccess.h"
 #include "inet/common/Protocol.h"
 #include "inet/common/ProtocolTag_m.h"
 #include "inet/common/StringFormat.h"
@@ -29,7 +29,18 @@
 //EXTRA BEGIN
 //#include "inet/linklayer/ethernet/switch/MacRelayUnit.h"
 #include "src/linklayer/ethernet/switch/MacRelayUnitSDN.h"
-#include "src/common/Simsignals.h"
+
+#include "src/common/SimsignalsSDN.h"
+
+/*
+ * The attribute can be disabled for functions by setting the -mnop-fun-dllimport flag.
+ * __declspec(dllimport)
+ * __attribute__ ((dllimport))
+ */
+//#define INET_API    OPP_DLLIMPORT
+#define INET_API    OPP_DLLEXPORT
+#include "inet/common/ModuleAccess.h"
+
 
 //namespace inet {
 namespace shortestPathLoad {
