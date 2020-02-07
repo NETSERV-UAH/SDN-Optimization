@@ -18,7 +18,7 @@ package shortestPathLoad.src.node.controller;
 //import table;
 import inet.common.lifecycle.NodeStatus;
 import inet.common.MessageDispatcher;
-import shortestPathLoad.src.node.controller.RoutingUnit;
+import shortestPathLoad.src.controller.routingunit.RoutingUnit;
 //
 module SimpleController
 {

@@ -1,6 +1,4 @@
 //
-// Copyright (C) 2005 Andras Varga
-//
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public License
 // as published by the Free Software Foundation; either version 2
@@ -15,17 +13,22 @@
 // along with this program; if not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <stdio.h>
-
-//#include "inet/common/Simsignals.h"
-#include "SimsignalsSDN.h"
-
-namespace shortestPathLoad {
-using namespace inet;
-
-simsignal_t packetReceivedFromControllerSignal = cComponent::registerSignal("packetReceivedFromController");
-simsignal_t packetSentToControllerSignal = cComponent::registerSignal("packetSentToController");
+package shortestPathLoad.src.controller.routingunit;
 
 
-} // namespace shortestPathLoad
+simple RoutingUnit 
+{
+    parameters:
+        @display("i=block/control;bgb=201,133");
+        @class(shortestPathLoad::RoutingUnit);
+        int numSouthBoundInterfaces = default(0);  // minimum number of switch interfaces
+        bool hasTable = default(true);
+        string table = default("table1");
+        //table.agingtime = default(120s);
+
+    gates:
+        input ifIn[];
+        output ifOut[];
+
+}
 

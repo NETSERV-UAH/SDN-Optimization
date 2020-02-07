@@ -1,6 +1,3 @@
-//
-// Copyright (C) 2005 Andras Varga
-//
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public License
 // as published by the Free Software Foundation; either version 2
@@ -15,16 +12,40 @@
 // along with this program; if not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <stdio.h>
+#include "src/controller/routingunit/RoutingUnit.h"
 
-//#include "inet/common/Simsignals.h"
-#include "SimsignalsSDN.h"
+#include "inet/common/ModuleAccess.h"
+#include "inet/common/lifecycle/ModuleOperations.h"
+//#include "inet/common/packet/Packet.h"
 
 namespace shortestPathLoad {
-using namespace inet;
 
-simsignal_t packetReceivedFromControllerSignal = cComponent::registerSignal("packetReceivedFromController");
-simsignal_t packetSentToControllerSignal = cComponent::registerSignal("packetSentToController");
+Define_Module(RoutingUnit);
+
+RoutingUnit::~RoutingUnit()
+{
+}
+
+void RoutingUnit::initialize(int stage)
+{
+    RoutingUnitBase::initialize(stage);
+    if (stage == INITSTAGE_LOCAL) {
+            //throw cRuntimeError("Invalid startTime/stopTime parameters");
+    }
+}
+
+void RoutingUnit::handleStartOperation(LifecycleOperation *operation)
+{
+
+}
+
+void RoutingUnit::handleStopOperation(LifecycleOperation *operation)
+{
+}
+
+void RoutingUnit::handleCrashOperation(LifecycleOperation *operation)
+{
+}
 
 
 } // namespace shortestPathLoad

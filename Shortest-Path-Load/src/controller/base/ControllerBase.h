@@ -1,4 +1,3 @@
-//
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -13,28 +12,26 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#ifndef __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_SIMPLECONTROLLER_H
-#define __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_SIMPLECONTROLLER_H
+#ifndef __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_BASE_ROUTINGUNIT_H
+#define __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_BASE_ROUTINGUNIT_H
 
-#include "inet/common/INETDefs.h"
-#include "inet/common/lifecycle/ILifecycle.h"
-//#include "inet/common/lifecycle/ModuleOperations.h"
-//#include "inet/common/packet/Packet.h"
-//#include "inet/linklayer/ethernet/EtherFrame_m.h"
-//#include "inet/networklayer/contract/IInterfaceTable.h"
+#include "inet/common/lifecycle/ModuleOperations.h"
+#include "inet/common/lifecycle/OperationalBase.h"
 
 namespace shortestPathLoad {
 using namespace inet;
 
-class RoutingUnit : public cSimpleModule//: public OperationalBase
+class ControllerBase : public OperationalBase
 {
-protected:
+  public:
+    ControllerBase();
 
-    virtual void initialize(int stage) override;
-
+  protected:
+    virtual bool isInitializeStage(int stage) override { return stage == INITSTAGE_NETWORK_LAYER; }
+    virtual bool isModuleStartStage(int stage) override { return stage == ModuleStartOperation::STAGE_NETWORK_LAYER; }
+    virtual bool isModuleStopStage(int stage) override { return stage == ModuleStopOperation::STAGE_NETWORK_LAYER; }
 };
-
 } // namespace shortestPathLoad
 
-#endif // ifndef __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_SIMPLECONTROLLER_H
+#endif // ifndef __SHORTESTPATHLOAD_SRC_NODE_CONTROLLER_BASE_ROUTINGUNIT_H
 

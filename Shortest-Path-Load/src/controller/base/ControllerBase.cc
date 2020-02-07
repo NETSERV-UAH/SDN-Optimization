@@ -1,4 +1,3 @@
-//
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public License
 // as published by the Free Software Foundation; either version 2
@@ -13,22 +12,13 @@
 // along with this program; if not, see <http://www.gnu.org/licenses/>.
 //
 
-package shortestPathLoad.src.node.controller;
+#include "src/controller/base/ControllerBase.h"
 
+namespace shortestPathLoad {
 
-simple RoutingUnit 
+ControllerBase::ControllerBase()
 {
-    parameters:
-        @display("i=block/control;bgb=201,133");
-        @class(shortestPathLoad::RoutingUnit);
-        int numSouthBoundInterfaces = default(0);  // minimum number of switch interfaces
-        bool hasTable = default(true);
-        string table = default("table1");
-        //table.agingtime = default(120s);
-
-    gates:
-        input ifIn[];
-        output ifOut[];
-
 }
+
+} // namespace shortestPathLoad
 
